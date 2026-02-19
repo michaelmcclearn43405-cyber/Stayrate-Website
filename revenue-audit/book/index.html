@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Book your free revenue audit call with StayRate." />
+  <title>Book Your Free Audit | StayRate</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Calendly widget CSS -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
+
+  <style>
+    /* ---- Design tokens (mirrors site) ---- */
+    :root {
+      --color-accent:      #F5A623;
+      --color-accent-dark: #D4891A;
+      --color-black:       #0D0D0D;
+      --color-white:       #FFFFFF;
+      --color-off-white:   #F8F7F4;
+      --color-gray-muted:  #6B7280;
+      --color-gray-border: #E2E0D8;
+      --color-dark-bg:     #0F1620;
+      --font-heading: 'Plus Jakarta Sans', sans-serif;
+      --font-body:    'Inter', sans-serif;
+      --fw-bold: 700;
+      --fw-semibold: 600;
+      --shadow-lg: 0 12px 40px rgba(0,0,0,0.14);
+      --radius-xl: 28px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--color-off-white);
+      color: var(--color-black);
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header */
+    .book-header {
+      background: var(--color-white);
+      border-bottom: 1px solid var(--color-gray-border);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .book-header-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .book-logo { text-decoration: none; display: flex; align-items: center; }
+    .book-logo-img {
+      height: 134px;
+      width: auto;
+      display: block;
+      margin-top: -43px;
+      margin-bottom: -43px;
+      margin-left: -32px;
+      margin-right: -10px;
+    }
+
+    .book-trust {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      color: var(--color-gray-muted);
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+
+    /* Progress bar — static 100% since this is the final step */
+    .book-progress-wrap {
+      height: 4px;
+      background-color: var(--color-gray-border);
+    }
+    .book-progress-fill {
+      height: 100%;
+      background-color: var(--color-accent);
+      width: 100%;
+      border-radius: 0 2px 2px 0;
+    }
+
+    /* Hero text above calendly */
+    .book-main {
+      flex: 1;
+      max-width: 800px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 2rem 1.25rem 3rem;
+    }
+
+    .book-hero {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .book-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(245,166,35,0.12);
+      color: #D4891A;
+      font-family: var(--font-heading);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      margin-bottom: 1rem;
+    }
+
+    .book-heading {
+      font-family: var(--font-heading);
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-weight: 800;
+      color: var(--color-black);
+      margin-bottom: 0.75rem;
+      line-height: 1.25;
+    }
+
+    .book-sub {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      color: var(--color-gray-muted);
+      line-height: 1.6;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    /* What to expect chips */
+    .book-chips {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .book-chip {
+      font-family: var(--font-body);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--color-black);
+      background: var(--color-white);
+      border: 1px solid var(--color-gray-border);
+      border-radius: 9999px;
+      padding: 0.375rem 0.875rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+    }
+
+    /* Calendly embed wrapper */
+    .calendly-wrap {
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      background: var(--color-white);
+      border: 1px solid var(--color-gray-border);
+    }
+
+    .calendly-inline-widget {
+      min-width: 320px;
+      height: 700px;
+      display: none; /* shown by JS after initInlineWidget */
+    }
+
+    /* Loading state */
+    .calendly-loading {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 300px;
+      gap: 1rem;
+      color: var(--color-gray-muted);
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+    }
+
+    .calendly-spinner {
+      width: 36px;
+      height: 36px;
+      border: 3px solid var(--color-gray-border);
+      border-top-color: var(--color-accent);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Footer */
+    .book-footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      color: var(--color-gray-muted);
+    }
+    .book-footer a { color: var(--color-gray-muted); text-decoration: underline; }
+
+    @media (max-width: 480px) {
+      .calendly-inline-widget { height: 650px; }
+      .book-chips { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="book-header">
+    <div class="book-header-inner">
+      <a href="../../index.html" class="book-logo" aria-label="StayRate Home">
+        <img src="../../Logo Black Transparent Background.png" alt="StayRate" class="book-logo-img" />
+      </a>
+      <div class="book-trust">🔒 Secure &amp; confidential</div>
+    </div>
+  </header>
+
+  <!-- PROGRESS — 100% complete -->
+  <div class="book-progress-wrap" aria-hidden="true">
+    <div class="book-progress-fill"></div>
+  </div>
+
+  <!-- MAIN -->
+  <main class="book-main">
+
+    <div class="book-hero">
+      <div class="book-badge">🎉 One last step</div>
+      <h1 class="book-heading" id="book-heading">Pick a time for your free Revenue Audit</h1>
+      <p class="book-sub">A 30-minute call with our team to review your property's earning potential — completely free, no obligation.</p>
+      <div class="book-chips">
+        <span class="book-chip">⏱️ 30 minutes</span>
+        <span class="book-chip">💸 100% free</span>
+        <span class="book-chip">📊 Personalised analysis</span>
+        <span class="book-chip">🚫 No sales pressure</span>
+      </div>
+    </div>
+
+    <!-- Calendly inline widget -->
+    <div class="calendly-wrap">
+      <div class="calendly-loading" id="calendly-loading" aria-live="polite">
+        <div class="calendly-spinner"></div>
+        <span>Loading calendar…</span>
+      </div>
+      <div
+        class="calendly-inline-widget"
+        id="calendly-widget"
+        aria-label="Booking calendar"
+      ></div>
+    </div>
+
+  </main>
+
+  <footer class="book-footer">
+    © <span id="book-year"></span> StayRate ·
+    <a href="../../index.html">Back to site</a> ·
+    <a href="../start/index.html">Restart quiz</a>
+  </footer>
+
+  <!-- Calendly widget JS -->
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+
+  <script>
+    /* ---- Read state from localStorage ---- */
+    const STORAGE_KEY = 'stayrate_quiz_v2';
+    let quizData = {};
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) quizData = JSON.parse(raw).data || {};
+    } catch (_) {}
+
+    const firstName = quizData.firstName || '';
+    const lastName  = quizData.lastName  || '';
+    const email     = quizData.email     || '';
+    const phone     = quizData.phone     || '';
+    const locations = quizData.locations || [];   // array of address strings
+
+    /* ---- Personalise heading ---- */
+    if (firstName) {
+      document.getElementById('book-heading').textContent =
+        `${firstName}, pick a time for your free Revenue Audit`;
+    }
+
+    /* ---- Build Calendly URL with prefill ---- */
+    function buildCalendlyURL() {
+      const base   = 'https://calendly.com/stayrate/roadmap-call';
+      const params = new URLSearchParams();
+
+      const fullName = [firstName, lastName].filter(Boolean).join(' ');
+      if (fullName) params.set('name',  fullName);
+      if (email)    params.set('email', email);
+      // phone is passed via prefill.smsReminderNumber in initInlineWidget (not a URL param)
+
+      // a1 = first custom question on the event (property address)
+      const propSummary = locations.filter(Boolean).join(' | ');
+      if (propSummary) params.set('a1', propSummary);
+
+      params.set('utm_source', 'revenue_audit_funnel');
+
+      const queryStr = params.toString();
+      return queryStr ? `${base}?${queryStr}` : base;
+    }
+
+    /* ---- Init Calendly embed once script loads ---- */
+    function initCalendly() {
+      const widget  = document.getElementById('calendly-widget');
+      const loading = document.getElementById('calendly-loading');
+
+      // Widget must be visible in the DOM before Calendly initializes into it
+      widget.style.display = 'block';
+
+      // Build prefill object — customAnswers keys (a1, a2…) map to your
+      // Calendly event's custom questions in order.
+      // ┌─────────────────────────────────────────────────────────────┐
+      // │  In your Calendly event settings, make sure you have:       │
+      // │  • Name field    — enabled (built-in)                       │
+      // │  • Email field   — enabled (built-in)                       │
+      // │  • Phone number  — enabled (built-in, under "Invitee")      │
+      // │  • Custom Q1     — e.g. "Property address(es)"              │
+      // └─────────────────────────────────────────────────────────────┘
+      const propSummary = locations.filter(Boolean).join(' | ');
+      const prefillData = {
+        name:               [firstName, lastName].filter(Boolean).join(' '),
+        email:              email,
+        smsReminderNumber:  phone || undefined,   // pre-fills Calendly's phone/SMS field
+        customAnswers: {
+          a1: propSummary || undefined,           // custom question 1 = property address
+        },
+      };
+
+      Calendly.initInlineWidget({
+        url:           buildCalendlyURL(),
+        parentElement: widget,
+        prefill:       prefillData,
+      });
+
+      // Hide the spinner once the Calendly iframe has loaded
+      const iframe = widget.querySelector('iframe');
+      function hideSpinner() { loading.style.display = 'none'; }
+
+      if (iframe) {
+        iframe.addEventListener('load', hideSpinner);
+      } else {
+        // Fallback: poll for iframe then listen
+        const observer = new MutationObserver(function() {
+          const f = widget.querySelector('iframe');
+          if (f) {
+            observer.disconnect();
+            f.addEventListener('load', hideSpinner);
+          }
+        });
+        observer.observe(widget, { childList: true, subtree: true });
+        // Hard fallback: hide spinner after 4s regardless
+        setTimeout(hideSpinner, 4000);
+      }
+    }
+
+    /* ---- Wait for Calendly script to load ---- */
+    function waitForCalendly() {
+      if (typeof Calendly !== 'undefined') {
+        initCalendly();
+      } else {
+        setTimeout(waitForCalendly, 200);
+      }
+    }
+    waitForCalendly();
+
+    /* ---- Listen for booking confirmation ---- */
+    window.addEventListener('message', function (e) {
+      if (e.data && e.data.event === 'calendly.event_scheduled') {
+        // Preserve firstName for the confirmation page before clearing quiz state
+        try {
+          if (firstName) localStorage.setItem('stayrate_confirmed_name', firstName);
+          localStorage.removeItem(STORAGE_KEY);
+        } catch (_) {}
+        window.location.href = '../../audit-confirmed/index.html';
+      }
+    });
+
+    /* ---- Footer year ---- */
+    document.getElementById('book-year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>

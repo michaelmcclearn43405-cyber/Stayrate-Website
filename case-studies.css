@@ -1,0 +1,632 @@
+/* ============================================================
+   STAYRATE — case-studies.css
+   Editorial two-column magazine layout.
+   Inherits all tokens from style.css.
+
+   Structure:
+     1.  Page Intro
+     2.  Full-width Divider
+     3.  Case Study Section (.cs-study)
+     4.  Two-Column Grid (.cs-study-inner)
+     5.  Left Column — index, title, image, story, Airbnb btn
+     6.  Right Column — tags, charts, big stats, second img, CTA
+     7.  Before/After Bar Charts
+     8.  Big Stat Callouts
+     9.  Airbnb Button
+    10.  Active Nav State
+    11.  Responsive
+============================================================ */
+
+
+/* ============================================================
+   1. PAGE INTRO
+   Left-aligned editorial opener — title left, sub right
+============================================================ */
+.cs-intro {
+  background-color: var(--color-white);
+  padding: var(--space-16) 0 var(--space-12);
+}
+
+.cs-intro-inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.cs-intro-title {
+  font-family: var(--font-heading);
+  font-size: var(--fs-3xl);
+  font-weight: var(--fw-extrabold);
+  color: var(--color-black);
+  line-height: var(--lh-tight);
+  max-width: 700px;
+  margin: 0;
+}
+
+.cs-intro-sub {
+  font-size: var(--fs-md);
+  color: var(--color-gray-muted);
+  line-height: var(--lh-relaxed);
+  max-width: 540px;
+}
+
+
+/* ============================================================
+   2. FULL-WIDTH DIVIDER
+   Heavy rule between each case study — like a magazine spread
+============================================================ */
+.cs-divider {
+  width: 100%;
+  height: 2px;
+  background: var(--color-black);
+}
+
+
+/* ============================================================
+   3. CASE STUDY SECTION
+============================================================ */
+.cs-study {
+  background-color: var(--color-white);
+  padding: var(--space-16) 0;
+}
+
+/* Alternating light background for even studies */
+.cs-study:nth-child(even) {
+  background-color: var(--color-off-white);
+}
+
+
+/* ============================================================
+   4. TWO-COLUMN GRID
+   Mobile: single column stack
+   Desktop: ~40% left / ~60% right
+============================================================ */
+.cs-study-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-12);
+  align-items: start;
+}
+
+
+/* ============================================================
+   5. LEFT COLUMN
+============================================================ */
+.cs-left {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  position: relative;
+}
+
+/* Large editorial case number — sits above the title */
+.cs-index {
+  font-family: var(--font-heading);
+  font-size: 5rem;
+  font-weight: var(--fw-extrabold);
+  color: var(--color-black);
+  opacity: 0.07;
+  line-height: 1;
+  display: block;
+  letter-spacing: -0.04em;
+  margin-bottom: calc(-1 * var(--space-10)); /* overlap title below it */
+  user-select: none;
+}
+
+/* Property title — large, expressive */
+.cs-title {
+  font-family: var(--font-heading);
+  font-size: var(--fs-4xl);
+  font-weight: var(--fw-extrabold);
+  color: var(--color-black);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin: 0;
+  position: relative; /* sits on top of the faded index number */
+  z-index: 1;
+}
+
+/* Hero image — full width, square-ish crop */
+.cs-hero-img-wrap {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+}
+
+.cs-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.7s ease;
+}
+
+.cs-hero-img-wrap:hover .cs-hero-img {
+  transform: scale(1.03);
+}
+
+/* Story text block */
+.cs-story-block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.cs-story {
+  font-size: var(--fs-sm);
+  color: var(--color-gray-muted);
+  line-height: var(--lh-relaxed);
+  margin: 0;
+}
+
+
+/* ============================================================
+   6. RIGHT COLUMN
+============================================================ */
+.cs-right {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+/* Property tags */
+.cs-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.cs-tag {
+  display: inline-block;
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  font-family: var(--font-heading);
+  color: var(--color-gray-muted);
+  background: var(--color-surface);
+  border: 1px solid var(--color-gray-border);
+  border-radius: var(--radius-full);
+  padding: var(--space-1) var(--space-3);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Second (smaller) property image in right column */
+.cs-second-img-wrap {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  position: relative;
+}
+
+.cs-second-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.7s ease;
+}
+
+.cs-second-img-wrap:hover .cs-second-img {
+  transform: scale(1.03);
+}
+
+/* ── Slideshow ── */
+.cs-slideshow {
+  cursor: pointer;
+}
+
+/* Disable the generic hover-scale on slideshow containers */
+.cs-slideshow:hover .cs-second-img {
+  transform: none;
+}
+
+/* All slides stacked; use a single <div> height anchor via padding trick */
+.cs-slideshow .cs-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.7s ease;
+  z-index: 0;
+}
+
+/* First slide is the height anchor — stays in normal flow */
+.cs-slideshow .cs-slide:first-child {
+  position: relative;
+  opacity: 0; /* hidden by default; JS adds --active to show it */
+}
+
+.cs-slideshow .cs-slide--active {
+  opacity: 1;
+  z-index: 1;
+}
+
+/* Dot navigation */
+.cs-slideshow-dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 2;
+}
+
+.cs-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  transition: background 0.3s ease, transform 0.3s ease;
+  display: block;
+}
+
+.cs-dot--active {
+  background: #ffffff;
+  transform: scale(1.25);
+}
+
+/* ── Big stat count-up — flash-in effect ── */
+.cs-big-num[data-countup] {
+  display: inline-block;
+}
+
+.cs-big-num.countup-animating {
+  animation: numPop 0.3s ease-out both;
+}
+
+@keyframes numPop {
+  0%   { transform: scale(0.92); opacity: 0.4; }
+  60%  { transform: scale(1.06); }
+  100% { transform: scale(1);    opacity: 1;   }
+}
+
+/* CTA block at the bottom of right column */
+.cs-cta-block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-gray-border);
+}
+
+.cs-cta-text {
+  font-size: var(--fs-sm);
+  color: var(--color-gray-muted);
+  font-style: italic;
+}
+
+
+/* ============================================================
+   7. BEFORE / AFTER BAR CHARTS
+============================================================ */
+.cs-metrics-block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-6);
+  background: var(--color-off-white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-gray-border);
+}
+
+/* Legend */
+.cs-chart-legend {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--color-gray-border);
+  margin-bottom: var(--space-1);
+}
+
+.cs-legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  font-family: var(--font-heading);
+  color: var(--color-gray-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.cs-legend-item::before {
+  content: '';
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.cs-legend-before::before {
+  background: #E8E6DE;
+  border: 1.5px solid #C2BFB7;
+}
+
+.cs-legend-after::before {
+  background: var(--color-accent);
+}
+
+/* One metric row */
+.cs-chart-row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.cs-chart-label {
+  font-family: var(--font-heading);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  color: var(--color-black);
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+}
+
+.cs-chart-bars {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+/* Bar track + value label in a row */
+.cs-bar-group {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+/* Bar track */
+.cs-bar {
+  flex: 1;
+  height: 22px;
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  background: #ECEAE3;
+}
+
+.cs-bar--before {
+  background: #ECEAE3;
+  border: 1px solid #D5D2CA;
+}
+
+.cs-bar--after {
+  background: rgba(245, 166, 35, 0.12);
+  border: 1px solid rgba(245, 166, 35, 0.25);
+}
+
+/* Animated fill — starts at 0, JS sets final width */
+.cs-bar-fill {
+  height: 100%;
+  width: 0;
+  border-radius: var(--radius-full);
+  transition: width 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cs-bar--before .cs-bar-fill {
+  background: #FFFFFF;
+  border: 1.5px solid #C2BFB7;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.cs-bar--after .cs-bar-fill {
+  background: linear-gradient(90deg, #F5A623 0%, #FBBF47 100%);
+  box-shadow: 0 2px 8px rgba(245, 166, 35, 0.3);
+}
+
+/* Numeric value to the right of bar */
+.cs-bar-value {
+  font-family: var(--font-heading);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+  white-space: nowrap;
+  min-width: 72px;
+  text-align: right;
+  line-height: 1;
+}
+
+.cs-bar-value--before {
+  color: var(--color-gray-muted);
+}
+
+.cs-bar-value--after {
+  color: var(--color-accent);
+}
+
+
+/* ============================================================
+   8. BIG STAT CALLOUTS
+   Three headline numbers side-by-side, magazine-style
+============================================================ */
+.cs-big-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-1);
+  padding: var(--space-5) 0;
+  border-top: 2px solid var(--color-black);
+  border-bottom: 2px solid var(--color-black);
+}
+
+.cs-big-stat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-3) var(--space-4);
+}
+
+/* Add a vertical separator between stat items (not after last) */
+.cs-big-stat:not(:last-child) {
+  border-right: 1px solid var(--color-gray-border);
+}
+
+.cs-big-num {
+  font-family: var(--font-heading);
+  font-size: var(--fs-3xl);
+  font-weight: var(--fw-extrabold);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.cs-big-label {
+  font-size: var(--fs-xs);
+  color: var(--color-gray-muted);
+  font-weight: var(--fw-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: var(--lh-snug);
+}
+
+
+/* ============================================================
+   9. AIRBNB BUTTON
+   Pill-shaped, Airbnb red, with brand logo
+============================================================ */
+.btn-airbnb {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-5);
+  background-color: #FF385C;
+  color: #FFFFFF;
+  font-family: var(--font-heading);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+  text-decoration: none;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.01em;
+  align-self: flex-start; /* don't stretch to full width */
+  transition: background-color var(--transition-fast),
+              transform var(--transition-fast),
+              box-shadow var(--transition-fast);
+  box-shadow: 0 2px 10px rgba(255, 56, 92, 0.3);
+}
+
+.btn-airbnb:hover {
+  background-color: #E0314F;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(255, 56, 92, 0.4);
+}
+
+.btn-airbnb svg {
+  flex-shrink: 0;
+}
+
+
+/* ============================================================
+   10. ACTIVE NAV LINK STATE
+============================================================ */
+.nav-link--active {
+  color: var(--color-black) !important;
+}
+
+.nav-link--active::after {
+  width: 100% !important;
+}
+
+
+/* ============================================================
+   11. RESPONSIVE
+============================================================ */
+
+/* ── Tablet 640px+ ── */
+@media (min-width: 640px) {
+  .cs-intro-title {
+    font-size: var(--fs-4xl);
+  }
+
+  .cs-title {
+    font-size: var(--fs-5xl);
+  }
+
+  .cs-index {
+    font-size: 8rem;
+  }
+
+  .cs-big-num {
+    font-size: var(--fs-4xl);
+  }
+
+  /* Intro: side-by-side on tablet */
+  .cs-intro-inner {
+    flex-direction: row;
+    align-items: flex-end;
+    gap: var(--space-10);
+  }
+
+  .cs-intro-text {
+    flex: 1;
+  }
+
+  .cs-intro-sub {
+    flex: 0 0 300px;
+    margin-bottom: var(--space-2);
+  }
+}
+
+/* ── Desktop 1024px+ ── */
+@media (min-width: 1024px) {
+
+  .cs-intro {
+    padding: var(--space-20) 0 var(--space-16);
+  }
+
+  .cs-intro-title {
+    font-size: var(--fs-5xl);
+  }
+
+  /* Two-column grid: 40% | 60% */
+  .cs-study-inner {
+    grid-template-columns: 2fr 3fr;
+    gap: var(--space-16);
+    align-items: start;
+  }
+
+  /* Left col is sticky while right scrolls */
+  .cs-left {
+    position: sticky;
+    top: 88px; /* below fixed header */
+  }
+
+  .cs-title {
+    font-size: clamp(3rem, 4.5vw, 4.5rem);
+  }
+
+  .cs-index {
+    font-size: clamp(6rem, 10vw, 10rem);
+  }
+
+  .cs-story {
+    font-size: var(--fs-base);
+  }
+
+  .cs-metrics-block {
+    padding: var(--space-8);
+  }
+
+  .cs-bar {
+    height: 26px;
+  }
+
+  .cs-big-num {
+    font-size: var(--fs-4xl);
+  }
+}
+
+/* ── Wide 1280px+ ── */
+@media (min-width: 1280px) {
+  .cs-title {
+    font-size: 4.5rem;
+  }
+
+  .cs-index {
+    font-size: 10rem;
+  }
+}

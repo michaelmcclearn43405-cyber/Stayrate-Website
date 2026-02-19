@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="StayRate is a done-for-you revenue management service for short-term rental owners who want stronger revenue, more consistent bookings, and less mental load." />
+  <title>StayRate | Professional Revenue Management for Short-Term Rentals</title>
+
+  <!-- Google Fonts: Plus Jakarta Sans (headings) + Inter (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ================================================
+       HEADER / NAVIGATION
+       Sticky top nav with logo and primary CTA
+  ================================================ -->
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+
+      <!-- Logo: SVG replication of the StayRate wordmark + house icon -->
+      <a href="index.html" class="logo" aria-label="StayRate Home">
+        <img src="Logo Black Transparent Background.png" alt="StayRate" class="logo-img" />
+      </a>
+
+      <!-- Desktop navigation links -->
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link nav-link--active">Revenue Management</a></li>
+          <li><a href="#how-it-works" class="nav-link">Our Approach</a></li>
+          <li><a href="#who-its-for" class="nav-link">Who We Serve</a></li>
+          <li><a href="case-studies.html" class="nav-link">Results</a></li>
+          <!-- About Us dropdown -->
+          <li class="nav-item-dropdown">
+            <button class="nav-link nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+              About Us
+              <svg class="nav-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <ul class="nav-dropdown" role="menu">
+              <li role="none"><a href="#faq" class="nav-dropdown-item" role="menuitem">FAQs</a></li>
+              <li role="none"><a href="team.html" class="nav-dropdown-item" role="menuitem">Our Team</a></li>
+              <li role="none"><a href="markets.html" class="nav-dropdown-item" role="menuitem">Markets We Serve</a></li>
+              <li role="none"><a href="resources.html" class="nav-dropdown-item" role="menuitem">Resources</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Primary CTA (desktop) -->
+      <a href="revenue-audit/start/index.html" class="btn btn-primary nav-cta">Book Free Audit</a>
+
+      <!-- Hamburger toggle (mobile) -->
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+    </div>
+
+    <!-- Mobile menu drawer -->
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+      <nav aria-label="Mobile navigation">
+        <ul class="mobile-nav-list">
+          <li><a href="index.html" class="mobile-nav-link">Revenue Management</a></li>
+          <li><a href="#how-it-works" class="mobile-nav-link">Our Approach</a></li>
+          <li><a href="#who-its-for" class="mobile-nav-link">Who We Serve</a></li>
+          <li><a href="case-studies.html" class="mobile-nav-link">Results</a></li>
+          <li class="mobile-nav-group">
+            <span class="mobile-nav-group-label">About Us</span>
+            <ul class="mobile-nav-sublist">
+              <li><a href="#faq" class="mobile-nav-link mobile-nav-link--sub">FAQs</a></li>
+              <li><a href="team.html" class="mobile-nav-link mobile-nav-link--sub">Our Team</a></li>
+              <li><a href="markets.html" class="mobile-nav-link mobile-nav-link--sub">Markets We Serve</a></li>
+              <li><a href="resources.html" class="mobile-nav-link mobile-nav-link--sub">Resources</a></li>
+            </ul>
+          </li>
+        </ul>
+        <a href="revenue-audit/start/index.html" class="btn btn-primary mobile-cta">Book Your Free Revenue Audit</a>
+      </nav>
+    </div>
+  </header>
+
+
+  <main>
+
+    <!-- ================================================
+         HERO SECTION
+         Primary headline, subhead, CTA, trust indicators
+    ================================================ -->
+    <section class="hero" id="hero">
+      <div class="container hero-inner">
+
+        <div class="hero-content">
+          <!-- Eyebrow label -->
+          <p class="eyebrow">Colorado's Short-Term Rental Revenue Experts</p>
+
+          <h1 class="hero-headline">
+            Your Property Is an Asset.<br />
+            <span class="text-accent">Manage It Like One.</span>
+          </h1>
+
+          <p class="hero-subhead">
+            Most STR owners are leaving serious money on the table — not because of bad listings, but because dynamic pricing software is not the same as a revenue strategy. StayRate handles that strategy for you, 24/7.
+          </p>
+
+          <!-- CTA cluster -->
+          <div class="hero-cta-group">
+            <a href="revenue-audit/start/index.html" class="btn btn-primary btn-lg">Book Your Free Revenue Audit</a>
+            <p class="cta-reassurance">Not a sales call — an actual look at your numbers.</p>
+          </div>
+
+          <!-- Trust bar -->
+          <div class="trust-bar">
+            <div class="trust-item">
+              <span class="trust-number">50+</span>
+              <span class="trust-label">Properties Managed</span>
+            </div>
+            <div class="trust-divider" aria-hidden="true"></div>
+            <div class="trust-item">
+              <span class="trust-number">$5.4M</span>
+              <span class="trust-label">Annual Revenue Overseen</span>
+            </div>
+            <div class="trust-divider" aria-hidden="true"></div>
+            <div class="trust-item">
+              <span class="trust-number">100%</span>
+              <span class="trust-label">Colorado-Focused</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero visual: stat callout card -->
+        <div class="hero-visual" aria-hidden="true">
+          <div class="hero-card">
+            <p class="hero-card-label">Client Result</p>
+            <div class="hero-card-stats">
+              <div class="hero-stat">
+                <span class="hero-stat-number">+30%</span>
+                <span class="hero-stat-desc">Occupancy</span>
+              </div>
+              <div class="hero-stat">
+                <span class="hero-stat-number">+22%</span>
+                <span class="hero-stat-desc">Total Revenue</span>
+              </div>
+              <div class="hero-stat hero-stat-highlight">
+                <span class="hero-stat-number">+40%</span>
+                <span class="hero-stat-desc">Net Profit</span>
+              </div>
+            </div>
+            <p class="hero-card-source">5-bed Wheat Ridge, CO — 90 days with StayRate</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================================================
+         PROBLEM SECTION
+         Agitate the pain before presenting the solution
+    ================================================ -->
+    <section class="problem" id="problem">
+      <div class="container problem-inner">
+        <div class="problem-content">
+          <p class="eyebrow eyebrow-light">Sound Familiar?</p>
+          <h2 class="section-headline">Dynamic Pricing Is the Baseline. <span class="text-accent">Not the Edge.</span></h2>
+          <p class="section-body">
+            Five years ago, dynamic pricing software was a real competitive advantage. Today, almost every host has it — which means the tool that used to set you apart is now just the floor. When everyone's running the same automation, the difference between a calendar that performs and one that doesn't isn't the software anymore. It's the strategy behind it.
+          </p>
+          <p class="section-body">
+            Software reacts to data. A revenue manager interprets it. Software adjusts your nightly rate — but it doesn't understand your booking pace, how your market is moving three weeks out, or whether the gap in your calendar next Tuesday is a pricing problem or a positioning problem.
+          </p>
+        </div>
+
+        <!-- Problem vs Solution columns -->
+        <div class="problem-vs">
+          <div class="problem-col problem-col--bad">
+            <h3 class="problem-col-title">Without StayRate</h3>
+            <ul class="problem-list">
+              <li>Weekdays sit empty while weekends fill up</li>
+              <li>Last-minute panic discounting trains guests to wait</li>
+              <li>Revenue feels unpredictable and hard to explain</li>
+              <li>Dynamic pricing running — but no real strategy behind it</li>
+              <li>Constantly second-guessing your calendar</li>
+            </ul>
+          </div>
+          <div class="problem-col problem-col--good">
+            <h3 class="problem-col-title">With StayRate</h3>
+            <ul class="solution-list">
+              <li>Proactive pacing decisions — made ahead of the curve</li>
+              <li>Pricing aligned with how demand is actually moving</li>
+              <li>Calendar managed like a revenue-generating asset</li>
+              <li>Hotel-level strategy applied to your listing</li>
+              <li>Zero guesswork. Total clarity.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================================================
+         HOW IT WORKS
+         Simple 3-step process
+    ================================================ -->
+    <section class="how-it-works" id="how-it-works">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">The Process</p>
+          <h2 class="section-headline">How StayRate Works</h2>
+          <p class="section-subhead">Three steps from audit to actively managed revenue.</p>
+        </div>
+
+        <ol class="steps-list">
+
+          <li class="step-card animate-on-scroll">
+            <div class="step-number" aria-hidden="true">01</div>
+            <div class="step-body">
+              <h3 class="step-title">Your Free Revenue Audit</h3>
+              <p class="step-desc">We assess your property, your specific submarket, the competitive landscape, and seasonal demand patterns. We show you where pricing may be misaligned with demand and give you a clear, honest picture of what your listing should realistically be earning.</p>
+            </div>
+          </li>
+
+          <li class="step-card animate-on-scroll">
+            <div class="step-number" aria-hidden="true">02</div>
+            <div class="step-body">
+              <h3 class="step-title">A Custom Revenue Strategy — Built for Your Listing</h3>
+              <p class="step-desc">Not templated. Not automated. We build a pricing strategy grounded in analysis of your market, your goals, and your property's unique position. Airlines and hotels have revenue managers. Now your STR does too.</p>
+            </div>
+          </li>
+
+          <li class="step-card animate-on-scroll">
+            <div class="step-number" aria-hidden="true">03</div>
+            <div class="step-body">
+              <h3 class="step-title">Active Management, Week In and Week Out</h3>
+              <p class="step-desc">We track booking pace, market demand shifts, competitive positioning, and lead time trends — making decisions ahead of the curve, not in reaction to it. Your job is to own the asset. Ours is to make it perform.</p>
+            </div>
+          </li>
+
+        </ol>
+      </div>
+    </section>
+
+
+    <!-- ================================================
+         RESULTS / CASE STUDY
+         Social proof with real numbers
+    ================================================ -->
+    <section class="results" id="results">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Real Results</p>
+          <h2 class="section-headline">What Happens When You <span class="text-accent">Run the Playbook</span></h2>
+        </div>
+
+        <div class="case-study">
+          <div class="case-study-context">
+            <div class="case-study-text">
+              <h3 class="case-study-title">Seena's 5-Bedroom in Wheat Ridge, CO</h3>
+              <p class="case-study-body">
+                Seena already had dynamic pricing running when he came to us — great property, strong location, well-designed space. But like many hosts, his instinct was to hold firm on higher nightly rates. Revenue isn't just your nightly rate; it's your nightly rate multiplied by the nights you actually book.
+              </p>
+              <p class="case-study-body">
+                We mapped out healthy booking lead times for his specific market, aligned pricing with how demand was actually moving, optimized his Airbnb ruleset for better visibility, and tuned rates across different stay lengths. His average nightly rate actually came down slightly — but profitability surged.
+              </p>
+              <blockquote class="case-study-quote">
+                "Fewer empty nights, better pacing, healthier margins overall."
+              </blockquote>
+            </div>
+
+            <!-- Property photo + CTA -->
+            <div class="case-study-bottom">
+              <div class="cs-property-photo-wrap">
+                <a href="https://www.airbnb.com/rooms/745878687029397081" target="_blank" rel="noopener noreferrer" class="cs-property-photo-link" aria-label="View Seena's property on Airbnb">
+                  <img
+                    src="https://a0.muscache.com/im/pictures/prohost-api/Hosting-745878687029397081/original/615d96d3-8b18-4082-a318-3eec138b298b.jpeg?im_w=1200"
+                    alt="Seena's 5-bedroom home in Wheat Ridge, CO"
+                    class="cs-property-photo"
+                    loading="lazy"
+                  />
+                  <span class="cs-property-badge">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="#FF5A5F" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    View on Airbnb
+                  </span>
+                </a>
+              </div>
+
+              <a href="case-studies.html" class="btn btn-primary cs-results-cta">
+                See All Case Studies
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="case-study-metrics">
+            <div class="metric-card">
+              <span class="metric-number">+30%</span>
+              <span class="metric-label">Occupancy Rate</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-number">+22%</span>
+              <span class="metric-label">Total Revenue</span>
+            </div>
+            <div class="metric-card metric-card--highlight">
+              <span class="metric-number">+40%</span>
+              <span class="metric-label">Net Profit</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================================================
+         WHY STAYRATE (BENEFITS)
+         Four core value pillars
+    ================================================ -->
+    <section class="why-stayrate" id="why-stayrate">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Why It Works</p>
+          <h2 class="section-headline">Hotel-Level Thinking. <span class="text-accent">STR Scale.</span></h2>
+          <p class="section-subhead">We bring the discipline that airlines and hoteliers have used for decades — applied to your short-term rental.</p>
+        </div>
+
+        <div class="benefits-grid">
+
+          <div class="benefit-card animate-on-scroll">
+            <!-- Icon: Algorithm / data -->
+            <div class="benefit-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="16" width="4" height="10" rx="1" fill="#F5A623"/>
+                <rect x="8" y="10" width="4" height="16" rx="1" fill="#F5A623"/>
+                <rect x="14" y="6" width="4" height="20" rx="1" fill="#F5A623"/>
+                <rect x="20" y="2" width="4" height="24" rx="1" fill="#F5A623"/>
+              </svg>
+            </div>
+            <h3 class="benefit-title">Algorithm Literacy</h3>
+            <p class="benefit-desc">Airbnb rewards specific behaviors. We manage pricing to support booking velocity, conversion, and search visibility — keeping momentum strong instead of reacting late.</p>
+          </div>
+
+          <div class="benefit-card animate-on-scroll">
+            <!-- Icon: Location pin / map -->
+            <div class="benefit-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14 2C9.58 2 6 5.58 6 10c0 6.627 8 16 8 16s8-9.373 8-16c0-4.42-3.58-8-8-8z" stroke="#F5A623" stroke-width="2" fill="none"/>
+                <circle cx="14" cy="10" r="2.5" fill="#F5A623"/>
+              </svg>
+            </div>
+            <h3 class="benefit-title">Hyper-Local Expertise</h3>
+            <p class="benefit-desc">We are 100% Colorado because it 100% matters. Mountain towns, ski markets, urban cores, and shoulder seasons all behave differently. We price with local context, not national averages.</p>
+          </div>
+
+          <div class="benefit-card animate-on-scroll">
+            <!-- Icon: Shield / risk -->
+            <div class="benefit-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14 2L4 6v8c0 6.075 4.477 11.722 10 13 5.523-1.278 10-6.925 10-13V6L14 2z" stroke="#F5A623" stroke-width="2" fill="none"/>
+                <path d="M9 14l3.5 3.5L19 11" stroke="#F5A623" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="benefit-title">Risk Mitigation</h3>
+            <p class="benefit-desc">Revenue isn't just about filling nights — it's about protecting the asset. We avoid over-discounting, volatility spirals, and the guest-quality issues that come from reactive pricing.</p>
+          </div>
+
+          <div class="benefit-card animate-on-scroll">
+            <!-- Icon: Clock / time -->
+            <div class="benefit-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="14" cy="14" r="11" stroke="#F5A623" stroke-width="2"/>
+                <path d="M14 8v6l4 2" stroke="#F5A623" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="benefit-title">Stress Removal</h3>
+            <p class="benefit-desc">StayRate is built for busy professionals who want the returns of a professionally run asset without the time commitment. We handle pricing decisions with clarity, confidence, and consistency.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ================================================
+         MARKETS WE SERVE — Hyper-local Colorado expertise
+    ================================================ -->
+    <section class="markets-section" id="markets">
+      <div class="container">
+        <div class="markets-inner">
+
+          <div class="markets-text">
+            <p class="eyebrow">Colorado-Only. By Design.</p>
+            <h2 class="section-headline">Hyper-Localized <span class="text-accent">Expertise.</span></h2>
+            <p class="markets-body">
+              We are 100% Colorado because it 100% matters. Mountain towns, ski markets, urban cores, and shoulder seasons all behave differently — and we price with local context and on-the-ground insight, not national averages and set-it-and-forget-it dynamic pricing customizations alone.
+            </p>
+            <p class="markets-body">
+              When you work with StayRate, you're not getting a generalist platform. You're getting a team that knows how demand moves in Evergreen versus Breckenridge versus Wheat Ridge — and prices accordingly, every single week.
+            </p>
+            <a href="markets.html" class="btn btn-secondary">See the Markets We Cover →</a>
+          </div>
+
+          <div class="markets-map-col" aria-hidden="true">
+            <!-- Colorado market cards -->
+            <div class="markets-grid">
+              <div class="market-card animate-on-scroll">
+                <div class="market-icon">
+                  <svg width="22" height="22" viewBox="0 0 28 28" fill="none"><path d="M14 2C9.58 2 6 5.58 6 10c0 6.627 8 16 8 16s8-9.373 8-16c0-4.42-3.58-8-8-8z" stroke="#F5A623" stroke-width="2" fill="none"/><circle cx="14" cy="10" r="2.5" fill="#F5A623"/></svg>
+                </div>
+                <h3 class="market-name">Mountain Towns</h3>
+                <p class="market-desc">Bailey, Evergreen, Conifer — seasonal demand patterns and weekend-heavy calendars require active weekly pacing.</p>
+              </div>
+              <div class="market-card animate-on-scroll">
+                <div class="market-icon">
+                  <svg width="22" height="22" viewBox="0 0 28 28" fill="none"><path d="M14 2C9.58 2 6 5.58 6 10c0 6.627 8 16 8 16s8-9.373 8-16c0-4.42-3.58-8-8-8z" stroke="#F5A623" stroke-width="2" fill="none"/><circle cx="14" cy="10" r="2.5" fill="#F5A623"/></svg>
+                </div>
+                <h3 class="market-name">Ski Markets</h3>
+                <p class="market-desc">Breckenridge, Keystone, Vail — peak ski windows with a hard cliff on either side demand pinpoint pricing strategy.</p>
+              </div>
+              <div class="market-card animate-on-scroll">
+                <div class="market-icon">
+                  <svg width="22" height="22" viewBox="0 0 28 28" fill="none"><path d="M14 2C9.58 2 6 5.58 6 10c0 6.627 8 16 8 16s8-9.373 8-16c0-4.42-3.58-8-8-8z" stroke="#F5A623" stroke-width="2" fill="none"/><circle cx="14" cy="10" r="2.5" fill="#F5A623"/></svg>
+                </div>
+                <h3 class="market-name">Denver Metro</h3>
+                <p class="market-desc">Wheat Ridge, RiNo, Golden — event-driven demand, competitive supply, and group-travel dynamics all in one market.</p>
+              </div>
+              <div class="market-card animate-on-scroll">
+                <div class="market-icon">
+                  <svg width="22" height="22" viewBox="0 0 28 28" fill="none"><path d="M14 2C9.58 2 6 5.58 6 10c0 6.627 8 16 8 16s8-9.373 8-16c0-4.42-3.58-8-8-8z" stroke="#F5A623" stroke-width="2" fill="none"/><circle cx="14" cy="10" r="2.5" fill="#F5A623"/></svg>
+                </div>
+                <h3 class="market-name">Shoulder Seasons</h3>
+                <p class="market-desc">Spring and fall gaps kill annual revenue if not managed proactively. We close the shoulder-season gap before it opens.</p>
+              </div>
+            </div>
+
+            <div class="markets-badge">
+              <span class="markets-badge-text">100% Colorado Focus</span>
+              <span class="markets-badge-sub">Not a national platform. Your neighbors.</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ================================================
+         WHO IS STAYRATE FOR
+         Qualification section
+    ================================================ -->
+    <section class="who-its-for" id="who-its-for">
+      <div class="container who-inner">
+        <div class="who-content">
+          <p class="eyebrow eyebrow-light">Is This You?</p>
+          <h2 class="section-headline">StayRate Is Built for <span class="text-accent">Serious Owners</span></h2>
+          <p class="section-body">
+            StayRate is built for owners who view short-term rentals as investments, not side projects. If you're doing north of $80K/year, want performance without full property-management fees, and believe professional assets deserve professional pricing — this is for you.
+          </p>
+          <ul class="qualifier-list">
+            <li>You own a high-quality or luxury STR property</li>
+            <li>You're generating (or targeting) $80K+ in annual revenue</li>
+            <li>You already have dynamic pricing — but want the strategy behind it</li>
+            <li>You're too busy to manage pricing the way it deserves to be managed</li>
+            <li>You treat your rental like the asset it is</li>
+          </ul>
+          <a href="revenue-audit/start/index.html" class="btn btn-primary">See What Your Property Should Be Earning</a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ================================================
+         FAQ SECTION
+         Collapsible accordion addressing objections
+    ================================================ -->
+    <section class="faq" id="faq">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Common Questions</p>
+          <h2 class="section-headline">Answers Before You Ask</h2>
+        </div>
+
+        <div class="faq-list" role="list">
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-1">
+              <span>I already have dynamic pricing software. Why do I need StayRate?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-answer" id="faq-1" hidden>
+              <p>Dynamic pricing is a tool. Revenue management is a discipline. Software reacts to data — a revenue manager interprets it. Software adjusts your nightly rate, but it doesn't understand your booking pace, how your market is moving three weeks out, or whether the gap in your calendar next Tuesday is a pricing problem or a positioning problem. Think of it like this: Excel is a powerful tool, but a spreadsheet doesn't run a business. The person using it does.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-2">
+              <span>What does the free Revenue Audit actually include?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-answer" id="faq-2" hidden>
+              <p>We assess your property, dig into your specific submarket, show you where pricing may be misaligned with demand, and give you a clear, honest picture of what your listing should realistically be earning. It's not a sales call — it's an actual look at your numbers with real context and a smarter path forward.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-3">
+              <span>Do you only work in Colorado?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-answer" id="faq-3" hidden>
+              <p>Yes — and intentionally so. Mountain towns, ski markets, urban cores, and shoulder seasons all behave differently. We price with local context and on-the-ground insight, not national averages and set-it-and-forget-it dynamic pricing. Being 100% Colorado is a feature, not a limitation.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-4">
+              <span>How is StayRate different from a traditional property manager?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-answer" id="faq-4" hidden>
+              <p>We are a revenue management service — not a property manager. We don't handle cleaning, guest communication, or operations. We focus exclusively on pricing strategy and revenue performance. This means you get professional-grade pricing expertise without the 20–30% property management fee. Your asset performs better, and you keep more of what it earns.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-5">
+              <span>What kind of results can I realistically expect?</span>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-answer" id="faq-5" hidden>
+              <p>Results vary based on property type, location, and current pricing setup — but our clients typically see meaningful improvements in occupancy, total revenue, and net profit within the first 90 days. One recent client saw a 30% increase in occupancy, 22% increase in total revenue, and a 40% increase in net profit. His average nightly rate actually came down slightly — but fewer empty nights and better pacing meant profitability surged.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ================================================
+         FINAL CTA SECTION
+         Full-width, high-contrast CTA block
+    ================================================ -->
+    <section class="cta-section" id="audit">
+      <div class="container cta-inner">
+        <p class="eyebrow eyebrow-light">No Cost. No Obligation.</p>
+        <h2 class="cta-headline">Find Out What Your Property <span class="text-accent">Should Actually Be Earning.</span></h2>
+        <p class="cta-body">
+          We'll assess your property, dig into your submarket, show you where pricing may be misaligned with demand, and give you a clear picture of your listing's true revenue potential. It takes 30 minutes and costs nothing.
+        </p>
+        <a href="revenue-audit/start/index.html" class="btn btn-primary btn-lg">Book Your Free Revenue Audit</a>
+        <p class="cta-contact">
+          Or call us directly: <a href="tel:7205468281" class="cta-phone">(720) 546-8281</a>
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ================================================
+       FOOTER
+  ================================================ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+
+      <div class="footer-brand">
+        <a href="index.html" class="logo logo-footer" aria-label="StayRate Home">
+          <img src="Logo White Transparent Background.png" alt="StayRate" class="logo-img logo-img--footer" />
+        </a>
+        <p class="footer-tagline">Professional revenue management for Colorado's short-term rentals.</p>
+      </div>
+
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <ul class="footer-nav-list">
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="case-studies.html">Case Studies</a></li>
+          <li><a href="#why-stayrate">Why StayRate</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="revenue-audit/start/index.html">Book Free Audit</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-contact">
+        <a href="mailto:Michael@stayrate.io">Michael@stayrate.io</a>
+        <a href="tel:7205468281">(720) 546-8281</a>
+      </div>
+
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; <span id="footer-year"></span> StayRate. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
